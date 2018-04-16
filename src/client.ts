@@ -36,7 +36,10 @@ export function activate(context: vscode.ExtensionContext) {
 	const activeEditor = vscode.window.activeTextEditor;
 
 	const clientOptions: LanguageClientOptions = {
-		documentSelector: ['less'],
+		documentSelector: [
+			{ language: 'less', scheme: 'file' },
+			{ language: 'less', scheme: 'untitled' }
+		],
 		synchronize: {
 			configurationSection: ['less'],
 			fileEvents: vscode.workspace.createFileSystemWatcher('**/*.less')
